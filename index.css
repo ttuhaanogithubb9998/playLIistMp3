@@ -1,0 +1,140 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  background-color: #ccc;
+  width: 100%;
+}
+.container-main {
+  width: 400px;
+  margin: auto;
+}
+.highlight {
+  padding: 2%;
+  background: rgb(253, 255, 142);
+  display: flex;
+  flex-direction: column;
+}
+.highliht-title,
+.highlight-name-song {
+  text-align: center;
+  margin: 10px;
+  padding: 0px;
+}
+.highliht-title {
+  color: rgb(247, 71, 71);
+}
+.highlight-name-song {
+  color: rgb(35, 153, 182);
+}
+.highlight-img-song {
+  width: 100%;
+  text-align: center;
+}
+.highlight-img-song img {
+  width: 50%;
+  margin: auto;
+  border-radius: 50%;
+}
+.timeline {
+  display: flex;
+  align-items: center;
+}
+.line {
+  background-color: rgb(215, 188, 241);
+  width: 78%;
+  height: 2px;
+  cursor: pointer;
+}
+.line p {
+  width: 0px;
+  padding: 0px;
+  margin: 0px;
+  height: 2px;
+  background-color: rgb(241, 111, 133);
+}
+.time-now,.duration {
+  width: 10%;
+  padding-right: 1%;
+  padding-left: 1%;
+  color: rgb(231, 89, 113);
+}
+.highlight-control {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.highlight-control {
+  color: rgb(97, 92, 92);
+}
+.highlight-control i {
+  cursor: pointer;
+}
+.highlight-control i:active{
+  color: rgba(230, 25, 59, 0.651);
+}
+.ranTrue i,.repeatTrue i,.previouslyTrue i{
+  color: rgba(230, 25, 59, 0.651);
+}
+.icon-pause,
+.icon-play {
+  color: #fff;
+  background-color: rgba(230, 25, 59, 0.651);
+  border-radius: 50%;
+  padding: 20px;
+}
+.icon-pause,
+.icon-play:hover {
+  background-color: rgba(255, 0, 43, 0.76);
+}
+.pause-song .icon-pause {
+  display: none;
+}
+.play-song .icon-play {
+  display: none;
+}
+.list-song {
+  height: 300px;
+  overflow: auto;
+  padding: 0px 2%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(233, 227, 227);
+}
+.list-song::-webkit-scrollbar {
+  display: none;
+}
+.item-song {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 5px;
+  margin: 5px 0px;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+}
+.item-song:hover {
+  background-color: rgb(253, 168, 181);
+}
+.item-active{
+  background:rgb(253,168,181);
+}
+.item-song:active{
+  opacity: 0.8  ;
+}
+.item-img-song {
+  width: 20%;
+  margin-right: 10px;
+}
+.item-img-song img {
+  width: 100%;
+  border-radius: 50%;
+}
+.song .name-song {
+  color: rgb(35, 153, 182);
+}
+.song .singer {
+  color: rgb(97, 92, 92);
+  font-size: 12px;
+}
