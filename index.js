@@ -4,7 +4,8 @@ const playList = $(".list-song");
 const imgHighlight = $(".highlight-img-song img")
 const headingSong = $(".highlight-name-song");
 const imgSong = $(".highlight-img-song img");
-const audio = $("audio");
+const audio = $(".audio");
+const _audio = $("._audio");
 const playBtn = $(".playBtn");
 const timeNow = $(".time-now");
 const duration = $(".duration")
@@ -13,9 +14,11 @@ const nextSong = $(".next-song");
 const repeatSong = $(".repeat-song");
 const previouslySong = $(".previously-song");
 const randomSong = $(".random-song");
+const canvas = document.getElementById('myCanvas');
 
 var i;
 var itemSongs;
+
 const app = {
     currentIndex: 0,
     config: {
@@ -119,13 +122,13 @@ const app = {
             iterations: Infinity
         })
         var isPlaying = false;
-        var isIntoView =false;
+        var isIntoView = false;
 
 
         imgAnimate.pause();
         // hiệu ứng thu nhỏ img song
         playList.addEventListener("scroll", e => {
-            if(!isIntoView){
+            if (!isIntoView) {
                 var scrollNow = e.target.scrollTop;
                 imgHighlight.style.width = widthImg - scrollNow > 0 ? widthImg - scrollNow + "px" : "0px"
                 playList.style.height = 300 + scrollNow > 300 + widthImg ? 300 + widthImg + "px" : 300 + scrollNow + "px"
@@ -135,15 +138,17 @@ const app = {
         playBtn.addEventListener("click", pp = (e) => {
             if (isPlaying) {
                 audio.pause();
+                _audio.pause();
             } else {
                 audio.play();
+                _audio.play();
             }
-
             audio.onplay = function () {
                 playBtn.classList.add("play-song")
                 playBtn.classList.remove("pause-song")
                 isPlaying = true;
                 imgAnimate.play();
+               
             }
             audio.onpause = function () {
                 playBtn.classList.remove("play-song")
@@ -182,6 +187,7 @@ const app = {
             Xn = Xn < 1 ? 0 : Xn;
             line.style.width = Xn + "%";
             audio.currentTime = audio.duration / 100 * Xn;
+            _audio.currentTime = _audio.duration / 100 * Xn;
         });
 
         //
@@ -200,6 +206,7 @@ const app = {
             this.loadCurrentSong();
             pp();
             audio.play();
+            _audio.play();
         });
 
         //
@@ -246,6 +253,7 @@ const app = {
             this.loadCurrentSong();
             pp();
             audio.play();
+            _audio.play();
         });
 
         // khi click vào item song
@@ -256,6 +264,7 @@ const app = {
                 app.loadCurrentSong();
                 pp();
                 audio.play();
+                _audio.play();
             }
         })
 
@@ -279,6 +288,7 @@ const app = {
         headingSong.textContent = this.currentSong.name;
         imgSong.src = this.currentSong.image;
         audio.src = this.currentSong.path;
+        _audio.src = this.currentSong.path;
     },
     formatTime: function (time) {
         let s;
@@ -307,13 +317,13 @@ const app = {
 
         // lấy dữ liệu config    từ bộ nhớ client
         this.getConfig();
-        
+
         // lắng nghe / xử lý các sự kiện (dom events)
         this.handleEvents();
-        
+
         // load song lần đầu
         this.loadCurrentSong();
-        
+
         // active item
         this.activeItemSong(this.currentIndex);
 

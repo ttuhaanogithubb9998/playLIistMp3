@@ -11,7 +11,7 @@
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="index.css" />
     
   </head>
-  <body>
+  <body  >
     <div class="container">
       <div class="container-main">
         <div class="highlight">
@@ -27,6 +27,7 @@
           <h2 class="highlight-name-song">duoi</h2>
           <div class="highlight-img-song">
             <img src="./img/DuongToiChoEmVe.jpg" alt="" />
+            <canvas id="myCanvas" ></canvas>
           </div>
           <div class="highlight-control">
             <div class="repeat-song"><i class="fas fa-redo"></i></div>
@@ -45,7 +46,8 @@
             <div class="line"><p></p></div>
             <div class="duration">00:00</div>
           </div>
-          <audio src=""></audio>
+          <audio class="_audio" src=""></audio>
+          <audio class="audio" src=""></audio>
         </div>
         <div class="list-song">
         </div>
@@ -53,4 +55,6 @@
     </div>
   </body>
   <script src="index.js"></script>
+  <script src="microphone.js"></script>
+  <script src="visualizer.js"></script>
 </html>
